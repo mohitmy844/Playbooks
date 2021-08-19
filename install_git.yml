@@ -1,0 +1,10 @@
+---
+ - name : Install Git Using Yum Module
+   hosts : localhost
+   tasks :
+    - name : Install Git
+      yum :
+       name : git
+       state : present
+       update_cache : yes
+...
