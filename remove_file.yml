@@ -1,0 +1,9 @@
+---
+ - name : Create New Directory If Doesn't Exists
+   hosts : localhost
+   tasks:
+    - name: Remove file
+       file:
+        path: /project/hello.txt
+        state: absent
+...        
