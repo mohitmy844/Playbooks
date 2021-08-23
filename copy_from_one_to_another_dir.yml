@@ -1,0 +1,11 @@
+- name: Ansible Copy Example Local to Local
+  hosts: localhost
+  tasks:
+    - name: copying file with playbook
+      become: true 
+      copy:
+        src: /project/devops/new.txt
+        dest: /var/www/html
+        owner: root
+        group: root        
+        mode: 0755
