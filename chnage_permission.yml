@@ -1,0 +1,13 @@
+---
+ - name : Change OwnerShip 
+   hosts : localhost
+   tasks :
+    - name: Test task
+      file:
+        path: "/project/devops"
+        state: directory
+        owner: root
+        group: root
+        mode: 0666
+      become: yes
+...
