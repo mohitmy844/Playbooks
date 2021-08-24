@@ -4,7 +4,7 @@
    tasks :
     - name : Check Directory Exists
       stat :
-       path : /project1/devops
+       path : /project/devops
       register : my_folder
     - name : Alert If Directory Already Exists
       debug :
@@ -12,7 +12,7 @@
       when : my_folder.stat.exists
     - name : Create Directory If Not Exists
       file : 
-       path : /project1/devops
+       path : /project/devops
        state : directory
        mode : 0755
        group : root
