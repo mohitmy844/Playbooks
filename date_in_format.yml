@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  tasks:
+   - name: Display the current timestamp in YYYY-MM-DD
+     debug:
+      msg: Todays date is {{ '%d-%b-%y' | strftime(ansible_date_time.epoch) }}
+...
