@@ -1,0 +1,22 @@
+
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: run commands to gather information
+    command: "{{item}}"
+    register: sys_details
+    with_items:
+     - df
+     - ls
+     - uptime
+  - name: saving infromation in data directory
+    blockinfile:
+     dest: "/home/ansible/playbooks/output.txt"
+     block: |
+            "{{item.stdout}}"
+     marker: "# -----"
+    loop: "{{sys_details.results}}"
+  - name: debug
+    debug:
+     msg: "{{sys_details}}"
+...

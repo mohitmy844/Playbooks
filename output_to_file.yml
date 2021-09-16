@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: run commands to gather information
+    shell:
+      commands:
+      - uptime
+      - who
+      - df
+    register: sys_details
+
+  - name: save collected infromation in data directory
+    copy:
+      dest: "~/output.txt"
+      content: |
+        show uptime
+        -----
+        {{ sys_details.stdout[0] }}
+
+        show User Details
+        -----
+        {{ sys_details.stdout[1] }}
+
+        show Data Usage
+        -----
+        {{ sys_details.stdout[2] }}
+...
