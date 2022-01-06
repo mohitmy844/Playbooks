@@ -11,7 +11,7 @@
      - uptime
   - name: saving infromation in data directory
     blockinfile:
-     dest: "/home/ansible/playbooks/output.txt"
+     dest: "/home/ansible/output.txt"
      block: |
             "{{item.stdout}}"
      marker: "# -----"
